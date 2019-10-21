@@ -13,15 +13,13 @@ import requests
 import Constants
 from random import randint
 
-
-
 DFO = Constants.DFO()
 NST = Constants.NST()
 NHL = Constants.NHL()
 
-def getRequestWithSleep(URL,PARAMS=[]):
+def getRequestWithSleep(URL,PARAMS=[],minSleep=1,maxSleep=10):
     page = requests.get(url=URL,params = PARAMS)
-    time.sleep(randint(1,10))
+    time.sleep(randint(minSleep,maxSleep))
     return page
     
 
@@ -62,7 +60,7 @@ def getNSTLineStats(line,abbr):
     
 def getDFORoster(teamName):
     url = DFO.ROSTER_URL.format(teamName)
-    page = getRequestWithSleep(url)
+    page = getRequestWithSleep(url,[],0,0)
     soup = BeautifulSoup(page.content, 'html.parser')
     roster = []
     for i in range(1, DFO.MAX_LINES+1):
@@ -122,9 +120,9 @@ def getLineStatsForGame(game):
     gameStats[NHL.AWAY] = {NHL.NAME:awayNSTName,NHL.ROSTER:getRosterStats(awayRoster,awayNSTName)}
     return gameStats
 
-if __name__ == '__main__':
-    games = getSchedule(datetime.datetime(2019,10,18))
+def scrape(date):
+    games = getSchedule(date)
     for game in games:
         stats = getLineStatsForGame(game)
         writeToFile(stats)
-    pass
+    

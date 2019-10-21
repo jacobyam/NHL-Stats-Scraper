@@ -20,7 +20,12 @@ class NHL():
                     'Edmonton Oilers':{'DFO':'Edmonton-Oilers','NST':'EDM'},
                     'Florida Panthers':{'DFO':'florida-panthers','NST':'FLA'},
                     'New York Rangers':{'DFO':'new-york-rangers','NST':'NYR'},
+                    'Ottawa Senators':{'DFO':'Ottawa-Senators','NST':'OTT'},
+                    'Philadelphia Flyers':{'DFO':'Philadelphia-Flyers','NST':'PHI'},
                     'Pittsburgh Penguins':{'DFO':'pittsburgh-penguins','NST':'PIT'},
+                    'St. Louis Blues':{'DFO':'St-Louis-Blues','NST':'STL'},
+                    'Toronto Maple Leafs':{'DFO':'Toronto-Maple-Leafs','NST':'TOR'},
+                    'Vegas Golden Knights':{'DFO':'vegas-golden-knights','NST':'VGK'},
                     'Washington Capitals':{'DFO':'washington-capitals','NST':'WSH'},
                  }
 
